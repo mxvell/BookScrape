@@ -49,8 +49,8 @@ public class BookService {
             for (Element element : bookElements) {
 
                 String title = element.select("h3 > a").attr("title");
-                String priceText = element.select("p.price_color").first().text();
-                String availability = element.select("p.availability").text();
+                String priceText = element.select("p.availability").text();
+                String availability= element.select("p.price_color").first().text();
                 String rating = element.select("p.star-rating").attr("class").split(" ")[1];
 
                 Book book = new Book(title, priceText, availability, rating);
