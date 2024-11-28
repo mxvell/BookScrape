@@ -10,19 +10,11 @@ import testTask.demo.service.BookService;
 import java.util.List;
 
 @SpringBootApplication
-public class BookScrapeApplication implements CommandLineRunner {
-    @Autowired
-    private BookService bookService;
+public class BookScrapeApplication  {
 
     public static void main(String[] args) {
         SpringApplication.run(BookScrapeApplication.class, args);
     }
 
 
-    @Override
-    public void run(String... args) throws Exception {
-        List<Book> books = bookService.scrapeAllPages();
-        bookService.storeBookData(books);
-        System.out.println("Book data stored in the database");
-    }
 }

@@ -21,6 +21,8 @@ Key Features
 
    **Save Book Data to Database**: The `storeBookData()` method in the `BookService` class saves the scraped book data to a PostgreSQL database using Spring Data JPA.
 
+   **Expose Book Data via REST API**: The `BookController` class provides a GET endpoint at `/books` that returns the list of scraped books.
+
     Clone the repository: https://github.com/mxvell/BookScrape.git 
     Configure your PostgreSQL database in application.properties:  
     - spring.datasource.url=jdbc:postgresql://localhost:5432/bookScraper
@@ -30,7 +32,7 @@ Key Features
 
 ## Usage
 
-The entry point of the application is the `BookScrapeApplication` class. The `run()` method in this class is the main entry point, which calls the `scrapeAllPages()` and `storeBookData()` methods in the `BookService` class.
+The entry point of the application is the `BookScrapeApplication` class. 
 
 The `BookService` class has the following methods:
 

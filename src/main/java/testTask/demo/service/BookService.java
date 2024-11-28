@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 @Service
 public class BookService {
 
@@ -26,6 +25,7 @@ public class BookService {
     public BookService(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
+
     public List<Book> scrapeAllPages() {
         List<Book> allBooks = new ArrayList<>();
         for (int page = 1; page <= TOTAL_PAGES; page++) {
@@ -40,6 +40,7 @@ public class BookService {
             bookRepository.saveAll(books);
         }
     }
+
     private List<Book> scrapeBooksData(String url) {
         List<Book> books = new ArrayList<>();
         try {
@@ -50,7 +51,7 @@ public class BookService {
 
                 String title = element.select("h3 > a").attr("title");
                 String priceText = element.select("p.availability").text();
-                String availability= element.select("p.price_color").first().text();
+                String availability = element.select("p.price_color").first().text();
                 String rating = element.select("p.star-rating").attr("class").split(" ")[1];
 
                 Book book = new Book(title, priceText, availability, rating);
